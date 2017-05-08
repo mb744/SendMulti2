@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ReportServerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="GetSubscription" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SubscriptionID" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="GetSubscriptionInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetSubscriptionInfoFromStoreNameandSite" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StoreName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Site" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ReportServerModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ReportServerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ReportServerEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="GetSubscriptionInfo" ReturnType="Collection(ReportServerModel.GetSubscriptionInfo_Result)" />
+          <FunctionImport Name="GetSubscriptionInfoFromStoreNameandSite" ReturnType="Collection(ReportServerModel.GetSubscriptionInfoFromStoreNameandSite_Result)">
+            <Parameter Name="StoreName" Mode="In" Type="String" />
+            <Parameter Name="Site" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetSubscription" ReturnType="Collection(ReportServerModel.GetSubscription_Result)">
+            <Parameter Name="SubscriptionID" Mode="In" Type="Guid" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetSubscriptionInfo_Result">
+          <Property Type="Guid" Name="subscriptionID" Nullable="true" />
+          <Property Type="Guid" Name="ScheduleID" Nullable="false" />
+          <Property Type="Guid" Name="reportID" Nullable="false" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="425" />
+          <Property Type="String" Name="extensionSettings" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="Parameters" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="GetSubscriptionInfoFromStoreNameandSite_Result">
+          <Property Type="Guid" Name="subscriptionID" Nullable="true" />
+          <Property Type="Guid" Name="ScheduleID" Nullable="false" />
+          <Property Type="Guid" Name="reportID" Nullable="false" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="425" />
+          <Property Type="String" Name="extensionSettings" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="Parameters" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="GetSubscription_Result">
+          <Property Type="Guid" Name="SubscriptionID" Nullable="false" />
+          <Property Type="Guid" Name="Report_OID" Nullable="false" />
+          <Property Type="Int32" Name="ReportZone" Nullable="false" />
+          <Property Type="String" Name="Locale" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="InactiveFlags" Nullable="false" />
+          <Property Type="String" Name="DeliveryExtension" Nullable="true" MaxLength="260" />
+          <Property Type="String" Name="ExtensionSettings" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="Column1" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="260" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="512" />
+          <Property Type="String" Name="LastStatus" Nullable="true" MaxLength="260" />
+          <Property Type="String" Name="EventType" Nullable="false" MaxLength="260" />
+          <Property Type="String" Name="MatchData" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="Parameters" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="DataSettings" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="TotalNotifications" Nullable="true" />
+          <Property Type="Int32" Name="TotalSuccesses" Nullable="true" />
+          <Property Type="Int32" Name="TotalFailures" Nullable="true" />
+          <Property Type="String" Name="Column2" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="UserName1" Nullable="true" MaxLength="260" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="425" />
+          <Property Type="DateTime" Name="LastRunTime" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Type" Nullable="false" />
+          <Property Type="Binary" Name="NtSecDescPrimary" Nullable="true" MaxLength="Max" />
+          <Property Type="Int32" Name="Version" Nullable="false" />
+          <Property Type="Int32" Name="AuthType" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ReportServerModelStoreContainer" CdmEntityContainer="ReportServerEntities" >
+          <FunctionImportMapping FunctionImportName="GetSubscriptionInfo" FunctionName="ReportServerModel.Store.GetSubscriptionInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ReportServerModel.GetSubscriptionInfo_Result">
+                <ScalarProperty Name="subscriptionID" ColumnName="subscriptionID" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+                <ScalarProperty Name="reportID" ColumnName="reportID" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="extensionSettings" ColumnName="extensionSettings" />
+                <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSubscriptionInfoFromStoreNameandSite" FunctionName="ReportServerModel.Store.GetSubscriptionInfoFromStoreNameandSite">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ReportServerModel.GetSubscriptionInfoFromStoreNameandSite_Result">
+                <ScalarProperty Name="subscriptionID" ColumnName="subscriptionID" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+                <ScalarProperty Name="reportID" ColumnName="reportID" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="extensionSettings" ColumnName="extensionSettings" />
+                <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSubscription" FunctionName="ReportServerModel.Store.GetSubscription">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ReportServerModel.GetSubscription_Result">
+                <ScalarProperty Name="SubscriptionID" ColumnName="SubscriptionID" />
+                <ScalarProperty Name="Report_OID" ColumnName="Report_OID" />
+                <ScalarProperty Name="ReportZone" ColumnName="ReportZone" />
+                <ScalarProperty Name="Locale" ColumnName="Locale" />
+                <ScalarProperty Name="InactiveFlags" ColumnName="InactiveFlags" />
+                <ScalarProperty Name="DeliveryExtension" ColumnName="DeliveryExtension" />
+                <ScalarProperty Name="ExtensionSettings" ColumnName="ExtensionSettings" />
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LastStatus" ColumnName="LastStatus" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="MatchData" ColumnName="MatchData" />
+                <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+                <ScalarProperty Name="DataSettings" ColumnName="DataSettings" />
+                <ScalarProperty Name="TotalNotifications" ColumnName="TotalNotifications" />
+                <ScalarProperty Name="TotalSuccesses" ColumnName="TotalSuccesses" />
+                <ScalarProperty Name="TotalFailures" ColumnName="TotalFailures" />
+                <ScalarProperty Name="Column2" ColumnName="Column2" />
+                <ScalarProperty Name="UserName1" ColumnName="UserName1" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="LastRunTime" ColumnName="LastRunTime" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="NtSecDescPrimary" ColumnName="NtSecDescPrimary" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="AuthType" ColumnName="AuthType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

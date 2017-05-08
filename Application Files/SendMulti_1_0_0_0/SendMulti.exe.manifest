@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="SendMulti.exe" version="1.0.0.0" publicKeyToken="1237049126b93e43" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="SendMulti" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="SendMulti.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SendMulti.exe" size="5592">
+      <assemblyIdentity name="SendMulti" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>4nY1YRcgi8+zeV6bHZgaMLizz0O8e8N9ZS9nLqtO85Y=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="SendMulti.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>6N7MliNbVJSIAIPrecIshMbZ7zEoKLr5SQvud4LDUOw=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=mbaez-dell-01\mbaez" issuerKeyHash="4cec21f9801cdd0afc83541dae681f87b699dff8" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>gKBthXRFkeDUdQttu99Ggn+G5SOBwzuwgCyMmpTpndc=</DigestValue></Reference></SignedInfo><SignatureValue>LmPOyi8lB7K5y9IGCU5GwB7dhIOsKICdb9GOqTeclBCJZ9NKLRtuE2b1tMUw5f8DNQxWSpyBxzxN0TkKw4fIJLdldgFz716UPdVGMHmcySiu7c5Gf/5yxLDlDDCTIW6RQkSckCfuw2PkW+cu2QyE09O4/qbsp1OjcBFDHImiKCU=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>j9n1a3zH+r9TZrYGmOM83jpNvDRTlzCdVle6kISdpPGrJZtH0pYTe8JLZJD6akG3cZh2LPqLerJvjg9dHFTH1MeyFHuwjv6NJ2BJp+3D7ye4jIMs2Jg+q6wv1uDDBEuKVJhuiq5VGAErHCgbBK78wrl+Fblo1uV41Rx9lQDrRwc=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="d79de9949a8c2c80b03bc38123e5867f8246dfbb6d0b75d4e0914574856da080" Description="" Url=""><as:assemblyIdentity name="SendMulti.exe" version="1.0.0.0" publicKeyToken="1237049126b93e43" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=mbaez-dell-01\mbaez</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>k3uIKZZttewVqRf8eqNA1+66zkdQoulram2Bn0wbncs=</DigestValue></Reference></SignedInfo><SignatureValue>Ji8sC3/EXaQkxIvHuhk7lERJkYvrxGFv8jgwuWPbSMvVuegTR3sfqneNP0SYqk5XI8BImo5IPvrWhpgineS6noCJ+3ovGYD4PsH2ejJ20hK/62uGct1TotsUWPA0uCKrthe8C4535ybNQNCB7WgJk+MymuP6l59qNpRE/SbFrvg=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>j9n1a3zH+r9TZrYGmOM83jpNvDRTlzCdVle6kISdpPGrJZtH0pYTe8JLZJD6akG3cZh2LPqLerJvjg9dHFTH1MeyFHuwjv6NJ2BJp+3D7ye4jIMs2Jg+q6wv1uDDBEuKVJhuiq5VGAErHCgbBK78wrl+Fblo1uV41Rx9lQDrRwc=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB5TCCAU6gAwIBAgIQEZLn+39S569CyLe7u8rT/TANBgkqhkiG9w0BAQsFADAxMS8wLQYDVQQDHiYAbQBiAGEAZQB6AC0AZABlAGwAbAAtADAAMQBcAG0AYgBhAGUAejAeFw0xNzA0MDIyMjQ5MjhaFw0xODA0MDMwNDQ5MjhaMDExLzAtBgNVBAMeJgBtAGIAYQBlAHoALQBkAGUAbABsAC0AMAAxAFwAbQBiAGEAZQB6MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCP2fVrfMf6v1NmtgaY4zzeOk28NFOXMJ1WV7qQhJ2k8aslm0fSlhN7wktkkPpqQbdxmHYs+ot6sm+OD10cVMfUx7IUe7CO/o0nYEmn7cPvJ7iMgyzYmD6rrC/W4MMES4pUmG6KrlUYASscKBsErvzCuX4VuWjW5XjVHH2VAOtHBwIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAGeD0IVC8ZMZx6tlppNLsqdVU04CQQjuoirBDiAj7EhlXlcWp7nKkVTvg6Knib6vw16B6di/rKuW88xfD1v5cWQDowo64jv/vE614qqAJYZCnvm1yMQ8mz0dn5NuwKDB/br22vhfVEmYfDPEkrLQF8XGXFGfXnIuZtchz5lJB0wa</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
